@@ -11,8 +11,8 @@ app.use(express.urlencoded({extended:false}))
 
 const staticPath = path.join(__dirname, "../public");
 app.use('/css',express.static(path.join(__dirname,"../node_modules/bootstrap/dist/css")));
-app.use('/css',express.static(path.join(__dirname,"../node_modules/bootstrap/dist/js")));
-app.use('/css',express.static(path.join(__dirname,"../node_modules/jquery/dist")));
+app.use('/js',express.static(path.join(__dirname,"../node_modules/bootstrap/dist/js")));
+app.use('/jq',express.static(path.join(__dirname,"../node_modules/jquery/dist")));
 app.use(express.static(staticPath))
 
 const templatePath = path.join(__dirname, "../templates/views")
