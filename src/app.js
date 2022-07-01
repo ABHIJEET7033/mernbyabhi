@@ -9,10 +9,12 @@ app.set("view engine","hbs");
 app.use(express.urlencoded({extended:false}))
 
 
-const staticPath = path.join(__dirname, "../public");
+
 app.use('/css',express.static(path.join(__dirname,"../node_modules/bootstrap/dist/css")));
 app.use('/js',express.static(path.join(__dirname,"../node_modules/bootstrap/dist/js")));
 app.use('/jq',express.static(path.join(__dirname,"../node_modules/jquery/dist")));
+
+const staticPath = path.join(__dirname, "../public")
 app.use(express.static(staticPath))
 
 const templatePath = path.join(__dirname, "../templates/views")
@@ -23,7 +25,17 @@ hbs.registerPartials(partialsPath)
 
 
 app.get("/",(req,res)=>{
-    res.render("index");
+    res.render('index');
+})
+
+app.get("/about",(req,res)=>{
+    res.render('about');
+})
+app.get("/service",(req,res)=>{
+    res.render("service");
+})
+app.get("/contact",(req,res)=>{
+    res.render("contact");
 })
 
 app.post("/contact",async(req,res)=>{
